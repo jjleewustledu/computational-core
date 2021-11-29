@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'computational-core'
+copyright = '2021, John J. Lee'
+author = 'John J. Lee'
 
 release = '0.1'
 version = '0.1.0'
