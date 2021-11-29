@@ -28,8 +28,8 @@ author = "John J. Lee"
 
 # The full version, including alpha/beta/rc tags
 #short_version = computational-core.__version__.split("+")[0]
-#release = short_version
-#version = short_version
+release = 0.1
+version = 0.1
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
