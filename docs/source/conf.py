@@ -1,35 +1,140 @@
 # Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information
+# -- Path setup --------------------------------------------------------------
 
-project = 'computational-core'
-copyright = '2021, John J. Lee'
-author = 'John J. Lee'
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+#
+import os
+import subprocess
+import sys
 
-release = '0.1'
-version = '0.1.0'
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+print(sys.path)
 
-# -- General configuration
+# -- Project information -----------------------------------------------------
 
-extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
+project = "computational-core"
+copyright = "2021, John J. Lee"
+author = "John J. Lee"
+
+# The full version, including alpha/beta/rc tags
+short_version = computational-core.__version__.split("+")[0]
+release = short_version
+version = short_version
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = [
+    "mlfourd",
+    "mlraichle",
+    "mlvg",
+    "mlarbelaez",
+    "cc-graph-nets",
+    "cc-trax",
+    "cc-vision-transformer",
 ]
 
-intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+
+def generate_apidocs(*args):
+    """Generate API docs automatically by trawling the available modules"""
+    module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "computational-core"))
+    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "apidocs"))
+    apidoc_command_path = "sphinx-apidoc"
+    if hasattr(sys, "real_prefix"):  # called from a virtualenv
+        apidoc_command_path = os.path.join(sys.prefix, "bin", "sphinx-apidoc")
+        apidoc_command_path = os.path.abspath(apidoc_command_path)
+    print(f"output_path {output_path}")
+    print(f"module_path {module_path}")
+    subprocess.check_call(
+        [apidoc_command_path, "-e"]
+        + ["-o", output_path]
+        + [module_path]
+        + [os.path.join(module_path, p) for p in exclude_patterns]
+    )
+
+
+# -- General configuration ---------------------------------------------------
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+source_suffix = {".rst": "restructuredtext", ".txt": "restructuredtext", ".md": "markdown"}
+
+extensions = [
+    "recommonmark",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.autosectionlabel",
+    "sphinx_autodoc_typehints",
+]
+
+autoclass_content = "both"
+add_module_names = True
+source_encoding = "utf-8"
+autosectionlabel_prefix_document = True
+napoleon_use_param = True
+napoleon_include_init_with_doc = True
+set_type_checking_flag = True
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ["_templates"]
+
+# -- Options for HTML output -------------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = "pydata_sphinx_theme"
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_options = {
+    "external_links": [{"url": "https://github.com/jjleewustledu/tutorials", "name": "Tutorials"}],
+    "icon_links": [
+        {"name": "GitHub", "url": "https://github.com/jjleewustledu/computational-core", "icon": "fab fa-github-square"},
+        {"name": "Twitter", "url": "https://twitter.com/jjleewustledu", "icon": "fab fa-twitter-square"},
+    ],
+    "collapse_navigation": True,
+    "navigation_depth": 3,
+    "show_toc_level": 1,
+    "footer_items": ["copyright"],
+    "navbar_align": "content",
 }
-intersphinx_disabled_domains = ['std']
+html_context = {
+    "github_user": "jjleewustledu",
+    "github_repo": "computational-core",
+    "github_version": "main",
+    "doc_path": "docs/",
+    "conf_py_path": "/docs/",
+    "VERSION": version,
+}
+html_scaled_image_link = False
+html_show_sourcelink = True
+html_favicon = "../images/favicon.ico"
+html_logo = "../images/computational-core-logo-color.png"
+html_sidebars = {"**": ["search-field", "sidebar-nav-bs"]}
+pygments_style = "sphinx"
 
-templates_path = ['_templates']
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["../_static"]
+html_css_files = ["custom.css"]
+html_title = f"{project} {version} Documentation"
 
-# -- Options for HTML output
+# -- Auto-convert markdown pages to demo --------------------------------------
 
-html_theme = 'sphinx_rtd_theme'
 
-# -- Options for EPUB output
-epub_show_urls = 'footnote'
+def setup(app):
+    # Hook to allow for automatic generation of API docs
+    # before doc deployment begins.
+    app.connect("builder-inited", generate_apidocs)
