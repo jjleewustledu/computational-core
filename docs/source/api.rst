@@ -1,7 +1,16 @@
-API
-===
+:github_url: https://github.com/jjleewustledu/computation-core
 
-.. autosummary::
-   :toctree: generated
+API Reference
+=============
 
-   lumache
+.. toctree::
+   :maxdepth: 1
+
+   mlfourd
+   mlriachle
+   mlvg
+   mlarbelaez
+   cc-graph-nets
+   cc-trax
+   cc-vision-transformer
+   
