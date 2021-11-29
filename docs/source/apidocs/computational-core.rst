@@ -4,7 +4,7 @@ computational-core package
 Module contents
 ---------------
 
-.. automodule:: monai
+.. automodule:: computational-core
    :members:
    :undoc-members:
    :show-inheritance:
