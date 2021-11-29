@@ -136,7 +136,7 @@ html_title = f"{project} {version} Documentation"
 # -- Auto-convert markdown pages to demo --------------------------------------
 
 
-def setup(app):
+#def setup(app):
     # Hook to allow for automatic generation of API docs
     # before doc deployment begins.
-    app.connect("builder-inited", generate_apidocs)
+#    app.connect("builder-inited", generate_apidocs)
