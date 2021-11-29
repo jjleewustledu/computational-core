@@ -25,29 +25,29 @@ Contents
 --------
 
 #. package `mlfourd <https://mlfourd.readthedocs.io/en/latest/>`_
-   * transparently supports 4dfp, NIfTI, CIFTI, FreeSurfer, iEEG and BIDS data formats
-   * provides adapter patterns implementing client interfaces familiar for neuroscience tasks
-   * uses state patterns instantiating lightweight objects optimized for categories of data and behavior
+   #. transparently supports 4dfp, NIfTI, CIFTI, FreeSurfer, iEEG and BIDS data formats
+   #. provides adapter patterns implementing client interfaces familiar for neuroscience tasks
+   #. uses state patterns instantiating lightweight objects optimized for categories of data and behavior
    
 #. package `mlraichle <https://mlraichle.readthedocs.io/en/latest/>`_
-   * provides biophysical models for oxygen and glucose metabolism
-   * provides image-derived input functions
-   * supports instrumentation related to the Siemens Biograph mMR
+   #. provides biophysical models for oxygen and glucose metabolism
+   #. provides image-derived input functions
+   #. supports instrumentation related to the Siemens Biograph mMR
    
 #. package `mlvg <https://mlvg.readthedocs.io/en/latest/>`_
-   * supports instrumentation related to the Siemens Biograph Vision
+   #. supports instrumentation related to the Siemens Biograph Vision
    
 #. package `mlarbelaez <https://mlarbelaez.readthedocs.io/en/latest/>`_
-   * supports instrumentation related to the Siemens ECAT EXACT HR+
+   #. supports instrumentation related to the Siemens ECAT EXACT HR+
    
 #. project `cc-graph-nets <https://cc-graph-nets.readthedocs.io/en/latest/>`_
-   * implements Deep Minds' Graph Nets library for neuroimaging
+   #. implements Deep Minds' Graph Nets library for neuroimaging
    
 #. project `cc-trax <https://cc-trax.readthedocs.io/en/latest/>`_
-   * implements Google Brain's Trax and transformers for neuroimaging
+   #. implements Google Brain's Trax and transformers for neuroimaging
 
 #. project `cc-vision-transformer <https://cc-vision-transformer.readthedocs.io/en/latest/>`_
-   * implements vision transformers and MLP-mixer architectures for neuroimaging
+   #. implements vision transformers and MLP-mixer architectures for neuroimaging
    
 
 .. toctree::
