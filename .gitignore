@@ -1,22 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks
-
-### JupyterNotebooks ###
-# gitignore template for Jupyter Notebooks
-# website: http://jupyter.org/
-
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
-
-# IPython
-profile_default/
-ipython_config.py
-
-# Remove previous ipynb_checkpoints
-#   git rm -r .ipynb_checkpoints/
-
-### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -39,7 +20,6 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -58,17 +38,18 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
-.nox/
 .coverage
 .coverage.*
+.coverage/
 .cache
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
-cover/
+
+# temporary unittest artifacts
+tests/testing_data/temp_*
 
 # Translations
 *.mo
@@ -78,7 +59,6 @@ cover/
 *.log
 local_settings.py
 db.sqlite3
-db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -91,31 +71,16 @@ instance/
 docs/_build/
 
 # PyBuilder
-.pybuilder/
 target/
 
 # Jupyter Notebook
-
-# IPython
+.ipynb_checkpoints
 
 # pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+.python-version
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
+# celery beat schedule file
 celerybeat-schedule
-celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
@@ -139,18 +104,35 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
+# pytype cache
 .pytype/
 
-# Cython debug symbols
-cython_debug/
+# mypy
+.mypy_cache/
+examples/scd_lvsegs.npz
+temp/
+.idea/
 
-# End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks
+*~
+
+# Remove .pyre temporary config files
+.pyre
+.pyre_configuration
+
+# temporary editor files that should not be in git
+*.orig
+*.bak
+*.swp
+.DS_Store
+
+# temporary testing data MedNIST
+tests/testing_data/MedNIST*
+tests/testing_data/*Hippocampus*
+tests/testing_data/*.tiff
+
+# clang format tool
+.clang-format-bin/
+
+# VSCode
+.vscode/
+*.zip
