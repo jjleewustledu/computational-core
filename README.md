@@ -1,67 +1,57 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Project-MONAI/MONAI/dev/docs/images/MONAI-logo-color.png" width="50%" alt='project-monai'>
+  <img src="https://raw.githubusercontent.com/jjleewustledu/computational-core/main/docs/images/computational-core-logo-color.png" width="50%" alt='computational-core'>
 </p>
 
-**M**edical **O**pen **N**etwork for **AI**
+**Computational Core**
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI Build](https://github.com/Project-MONAI/MONAI/workflows/build/badge.svg?branch=dev)](https://github.com/Project-MONAI/MONAI/commits/dev)
-[![Documentation Status](https://readthedocs.org/projects/monai/badge/?version=latest)](https://docs.monai.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/Project-MONAI/MONAI/branch/dev/graph/badge.svg)](https://codecov.io/gh/Project-MONAI/MONAI)
-[![PyPI version](https://badge.fury.io/py/monai.svg)](https://badge.fury.io/py/monai)
+[![Documentation Status](https://readthedocs.org/projects/computational-core/badge/?version=latest)](https://computational-core.readthedocs.io/en/latest/?badge=latest)
 
-MONAI is a [PyTorch](https://pytorch.org/)-based, [open-source](https://github.com/Project-MONAI/MONAI/blob/dev/LICENSE) framework for deep learning in healthcare imaging, part of [PyTorch Ecosystem](https://pytorch.org/ecosystem/).
-Its ambitions are:
-- developing a community of academic, industrial and clinical researchers collaborating on a common foundation;
-- creating state-of-the-art, end-to-end training workflows for healthcare imaging;
-- providing researchers with the optimized and standardized way to create and evaluate deep learning models.
+computational-core describes software projects authored by John J. Lee and collaborators for the [Computational Core](https://sites.wustl.edu/nillabs/nil-core-services/) of the [Neuroimaging Laboratories](https://sites.wustl.edu/nillabs/) at [Washington University in St. Louis](https://wustl.edu/).  These projects support research programs of the organizational units aforementioned.  
 
+While the scope of projects is diverse, research themes most commonly involve:
+  - biophysical models of brain metabolism and function
+  - instrumentation and data specific for positron emission tomography 
+  - instrumentation and data specific for resting-state functional magnetic resonance imaging
+  - instrumentation and data specific for intracranial electroencephalography
+  - data archives based on [XNAT]((https://www.xnat.org/)
+  - standardized data formats such as [4dfp](https://4dfp.readthedocs.io/en/latest/>), [NIfTI](https://nifti.nimh.nih.gov/nifti-2), [CIFTI](https://www.nitrc.org/projects/cifti/), and [BIDS](https://bids.neuroimaging.io/)
+  - inferential methodologies drawn from Bayesian statistics, expectation maximization, Markov chain Monte Carlo, graphical models, and deep learning
+  - reuse of mature pre-existing projects such as [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki), [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/), [Tensorflow](https://www.tensorflow.org/), [Pytorch](https://pytorch.org), and [MONAI](https://monai.io/).  
 
-## Features
-> _The codebase is currently under active development._
-> _Please see [the technical highlights](https://docs.monai.io/en/latest/highlights.html) and [What's New](https://docs.monai.io/en/latest/whatsnew.html) of the current milestone release._
+> _This project is under active development._
 
-- flexible pre-processing for multi-dimensional medical imaging data;
-- compositional & portable APIs for ease of integration in existing workflows;
-- domain-specific implementations for networks, losses, evaluation metrics and more;
-- customizable design for varying user expertise;
-- multi-GPU data parallelism support.
+## Contents
 
+1. package [mlfourd](https://mlfourd.readthedocs.io/en/latest/)
 
-## Installation
+    - transparently supports 4dfp, NIfTI, CIFTI, FreeSurfer, iEEG and BIDS data formats
+    - provides adapter patterns implementing client interfaces familiar for neuroscience tasks
+    - uses state patterns instantiating lightweight objects optimized for categories of data and behavior
+   
+2. package [mlraichle](https://mlraichle.readthedocs.io/en/latest/)
 
-To install [the current release](https://pypi.org/project/monai/), you can simply run:
+    - provides biophysical models for oxygen and glucose metabolism
+    - provides image-derived input functions
+    - supports instrumentation related to the Siemens Biograph mMR
+   
+3. package [mlvg](https://mlvg.readthedocs.io/en/latest/)
 
-```bash
-pip install monai
-```
+    - supports instrumentation related to the Siemens Biograph Vision
+   
+4. package [mlarbelaez](https://mlarbelaez.readthedocs.io/en/latest/)
 
-For other installation methods (using the default GitHub branch, using Docker, etc.), please refer to [the installation guide](https://docs.monai.io/en/latest/installation.html).
+    - supports instrumentation related to the Siemens ECAT EXACT HR+
+   
+5. project [cc-graph-nets](https://cc-graph-nets.readthedocs.io/en/latest/)
 
-## Getting Started
+    - implements Deep Minds' Graph Nets library for neuroimaging
+   
+6. project [cc-trax](https://cc-trax.readthedocs.io/en/latest/)
 
-[MedNIST demo](https://colab.research.google.com/drive/1wy8XUSnNWlhDNazFdvGBHLfdkGvOHBKe) and [MONAI for PyTorch Users](https://colab.research.google.com/drive/1boqy7ENpKrqaJoxFlbHIBnIODAs1Ih1T) are available on Colab.
+    - implements Google Brain's Trax and transformers for neuroimaging
 
-Examples and notebook tutorials are located at [Project-MONAI/tutorials](https://github.com/Project-MONAI/tutorials).
+7. project [cc-vision-transformer](https://cc-vision-transformer.readthedocs.io/en/latest/)
 
-Technical documentation is available at [docs.monai.io](https://docs.monai.io).
-
-## Contributing
-For guidance on making a contribution to MONAI, see the [contributing guidelines](https://github.com/Project-MONAI/MONAI/blob/dev/CONTRIBUTING.md).
-
-## Community
-Join the conversation on Twitter [@ProjectMONAI](https://twitter.com/ProjectMONAI) or join our [Slack channel](https://forms.gle/QTxJq3hFictp31UM9).
-
-Ask and answer questions over on [MONAI's GitHub Discussions tab](https://github.com/Project-MONAI/MONAI/discussions).
-
-## Links
-- Website: https://monai.io/
-- API documentation: https://docs.monai.io
-- Code: https://github.com/Project-MONAI/MONAI
-- Project tracker: https://github.com/Project-MONAI/MONAI/projects
-- Issue tracker: https://github.com/Project-MONAI/MONAI/issues
-- Wiki: https://github.com/Project-MONAI/MONAI/wiki
-- Test status: https://github.com/Project-MONAI/MONAI/actions
-- PyPI package: https://pypi.org/project/monai/
-- Weekly previews: https://pypi.org/project/monai-weekly/
-- Docker Hub: https://hub.docker.com/r/projectmonai/monai
+    - implements vision transformers and MLP-mixer architectures for neuroimaging
+   
