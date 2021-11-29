@@ -25,7 +25,7 @@ copyright = "2021, John J. Lee"
 author = "John J. Lee"
 
 # The full version, including alpha/beta/rc tags
-short_version = computational_core.__version__.split("+")[0]
+short_version = __version__.split("+")[0]
 release = short_version
 version = short_version
 
