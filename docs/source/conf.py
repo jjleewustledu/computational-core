@@ -18,6 +18,8 @@ sys.path.insert(0, os.path.abspath(".."))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 print(sys.path)
 
+#import computational-core
+
 # -- Project information -----------------------------------------------------
 
 project = "computational-core"
@@ -25,9 +27,9 @@ copyright = "2021, John J. Lee"
 author = "John J. Lee"
 
 # The full version, including alpha/beta/rc tags
-short_version = __version__.split("+")[0]
-release = short_version
-version = short_version
+#short_version = computational-core.__version__.split("+")[0]
+#release = short_version
+#version = short_version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
