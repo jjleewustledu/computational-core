@@ -28,8 +28,8 @@ author = "John J. Lee"
 
 # The full version, including alpha/beta/rc tags
 #short_version = computational-core.__version__.split("+")[0]
-release = 0.1
-version = 0.1
+release = "0.1.0"
+version = "0.1.0"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -81,13 +81,13 @@ extensions = [
     "sphinx_autodoc_typehints",
 ]
 
-autoclass_content = "both"
-add_module_names = True
-source_encoding = "utf-8"
-autosectionlabel_prefix_document = True
+#autoclass_content = "both"
+#add_module_names = True
+#source_encoding = "utf-8"
+#autosectionlabel_prefix_document = True
 napoleon_use_param = True
 napoleon_include_init_with_doc = True
-set_type_checking_flag = True
+#set_type_checking_flag = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
