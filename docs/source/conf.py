@@ -55,12 +55,14 @@ def generate_apidocs(*args):
         apidoc_command_path = os.path.abspath(apidoc_command_path)
     print(f"output_path {output_path}")
     print(f"module_path {module_path}")
+    """
     subprocess.check_call(
         [apidoc_command_path, "-e"]
         + ["-o", output_path]
         + [module_path]
         + [os.path.join(module_path, p) for p in exclude_patterns]
     )
+    """
 
 
 # -- General configuration ---------------------------------------------------
